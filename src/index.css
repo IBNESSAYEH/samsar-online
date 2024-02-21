@@ -1,13 +1,98 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --bg-color: #ebf1f9;
+  --bg-secoendary-color: #ffffff96;
+  --bg-tertiary-color: #ffffff;
+  --text-primary-color: #000000;
+  --btn-primary-color: #6a71f1;
+  --btn-secondary-color:  #6eb4ff;
+}
+
+body {
+  height: 100vh;
+  background-image: url('/public/assets/photos/auth-bg2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.register__main {
+  min-height: 100vh;
+}
+
+.register__main__logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 15rem; /* Adjust as per your logo size */
+  margin: .3rem;
+  z-index: 1;
+}
+
+.register__main__fromSection {
+  
+  position: relative;
+  padding-top: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);/* Adjust as per your design */
+  box-shadow: .5rem .5rem 1rem .1rem var(--text-primary-color); /* Adjust shadow as per your design */
+}
+
+.register__form {
+  width: 100%;
+}
+
+.register__form__group {
+  margin-bottom: .5rem;
+}
+
+.register__form__group__item {
+  margin-bottom: 1rem;
+}
+
+.register__form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.register__form__control {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: .6rem !important;
+  border-radius: 4px; 
+  outline: none;
+  background-color: transparent;
+  border: .1rem solid var(--btn-primary-color);
+  border-top: none;
+  transition:.5s ease;
+}
+.register__form__control:hover{
+  background-color: var(--bg-secoendary-color);
+  border-top-right-radius: 3rem !important;
+  border-bottom-left-radius: 3rem !important;
+}
+
+.register__form__btn {
+  width: 98% !important;
+  padding: 0.75rem;
+  margin: auto;
+  background-color: var(--btn-primary-color); /* Adjust button color as per your design */
+  color: var(--bg-tertiary-color); /* Adjust text color as per your design */
+  border: none;
+  border-radius: 4px; /* Adjust border-radius as per your design */
+  cursor: pointer;
+  transition: background-color 1s ease;
+}
+
+.register__form__btn:hover {
+  background-color: var(--btn-secondary-color); /* Adjust hover color as per your design */
 }
