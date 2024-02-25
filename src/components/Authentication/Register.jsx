@@ -1,4 +1,5 @@
-import {useState, useRef} from 'react';
+import React, {useState, useRef} from 'react';
+import axios from "axios"
 
 const Register = () => {
   //--------------------------state init------------------------------------
@@ -115,25 +116,63 @@ const Register = () => {
     }
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
 
+
+
+
+  const [formData, setFormData] = useState({});
+ 
+  const [formErrors, setFormErrors] = useState({});
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
     // Check if all fields are valid before submission
     if (
       handleFirstNameInput() &&
-      handleLastNameInput()  &&
+      handleLastNameInput() &&
       handlePhoneInput() &&
       handleEmailInput() &&
       handlePasswordInput() &&
       handleConfirmPasswordInput()
     ) {
-      // Perform submission action here
-      console.log("Form submitted successfully");
+      const formData = {
+        first_name: firstNameInput.current.value,
+        last_name: lastNameInput.current.value,
+        phone: phoneInput.current.value,
+        email: emailInput.current.value,
+        password: passwordInput.current.value,
+      };
+  
+      try {
+        const response = await axios.post("http://localhost:8000/api/register", formData);
+  
+        if (response.status === 200) {
+         
+          alert(response.data.message);
+        } else if (response.status === 422) {
+          // Display validation errors
+          const errorMessages = Object.values(response.data.errors).join('\n');
+          alert(errorMessages);
+        }
+      } catch (error) {
+        if (error.response) {
+          if (error.response.status === 500) {
+            
+            alert("Email already exists. Please use a different email.");
+          } else {
+            const errorMessages = Object.values(error.response.data.errors).join('\n');
+            
+            alert(errorMessages + '\n' + "try again and respect the messages bellow rhe inputs !");
+          }
+        } else {
+          console.error('An error occurred:', error.message);
+         
+        }
+      }
     } else {
-      console.log("Please correct the errors and try again!!");
+      alert("Please correct the errors and try again!!");
     }
   };
-  
 
 
   return (
