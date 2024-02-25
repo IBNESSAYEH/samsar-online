@@ -64,7 +64,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.register__form__control {
+.register__form__control, .login__form__control {
   width: 100%;
   padding: 0.5rem 1rem;
   border-radius: .6rem !important;
@@ -75,7 +75,7 @@ body {
   border-top: none;
   transition:.5s ease;
 }
-.register__form__control:hover{
+.register__form__control:hover, .login__form__control:hover{
   background-color: var(--bg-secoendary-color);
   border-top-right-radius: 3rem !important;
   border-bottom-left-radius: 3rem !important;
@@ -95,4 +95,12 @@ body {
 
 .register__form__btn:hover {
   background-color: var(--btn-secondary-color); /* Adjust hover color as per your design */
+}
+
+
+/* styling login component */
+
+
+.main__login__fromSection__form{
+  width: 80%;
 }
