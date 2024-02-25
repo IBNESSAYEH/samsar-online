@@ -7,7 +7,7 @@ const Login = () => {
 
   // destruct AuthContext data
  const { emailInput,passwordInput,emailInputMessage,passwordInputMessage,handleLoginEmailInput,
-    handlePasswordInput} = useContext(AuthContext)
+    handlePasswordInput, handleLoginSubmit} = useContext(AuthContext)
 
 
 
@@ -16,7 +16,7 @@ const Login = () => {
       <section className="register__main__fromSection col-11 col-lg-6">
         <img src="/assets/photos/Logo.png" alt="SAmasarOnline Logo" className="register__main__logo" />
         <div className="main__login__fromSection__form">
-          <form className="register__form row " method='POST' >
+          <form className="register__form row " method='POST' onSubmit={handleLoginSubmit}>
            
             <div className="register__form__group col-12 col-md-12 gap-2">
               <div className="register__form__group__item mb-3">
