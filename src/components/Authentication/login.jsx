@@ -38,10 +38,7 @@ const Login = () => {
               </div>
               
             </div>
-            <div className="register__form__group col-12 mb-3">
-              <label htmlFor="formFile" className="register__form__label">Profile :</label>
-              <input className="register__form__control" type="file" id="formFile" placeholder="Choose your profile" />
-            </div>
+           
             <button type="submit" name="submit" className="register__form__btn ">Submit</button>
           </form>
           <p className='mt-2'>if you have an account : <span className='text-success'>Login</span></p>
